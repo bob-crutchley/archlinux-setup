@@ -11,7 +11,7 @@ printf "127.0.0.1\tlocalhost.localdomain\tlocalhost\n" >> /etc/hosts
 printf "::1\tlocalhost.localdomain\tlocalhost\n" >> /etc/hosts
 printf "127.0.1.1\tlocalhost.localdomain\tarchlinux\n" >> /etc/hosts
 
-systemctl enable dhcpd
+systemctl enable dhcpcd
 
 pacman -S grub --noconfirm
 grub-install /dev/sda
