@@ -1,6 +1,8 @@
 #!/bin/bash
 loadkeys uk
 timedatectl set-ntp 1
+# make sure that the disk has been wiped
+sgdisk --zap-all /dev/sda
 # create a single, bootable disk partition
 sfdisk /dev/sda << _EOF_
 ,,,*;
