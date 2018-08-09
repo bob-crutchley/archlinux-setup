@@ -1,0 +1,19 @@
+#!/bin/bash
+# locale.gen
+sed -i 's/#en_GB.ISO/en_GB.ISO/g' /etc/locale.gen
+locale-gen
+
+ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+hwclock --systohc --utc
+
+printf "archlinux\n" > /etc/hostname
+printf "127.0.0.1\tlocalhost.localdomain\tlocalhost\n" >> /etc/hosts
+printf "::1\tlocalhost.localdomain\tlocalhost\n" >> /etc/hosts
+printf "127.0.1.1\tlocalhost.localdomain\tarchlinux\n" >> /etc/hosts
+
+systemctl enable dhcpd
+
+pacman -S grub --noconfirm
+grub install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
