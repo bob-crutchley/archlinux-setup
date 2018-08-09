@@ -1,4 +1,14 @@
 #!/bin/bash
 loadkeys uk
 timedatectl set-ntp 1
+# create a single, bootable disk partition
+sfdisk /dev/sda << _EOF_
+,,,*;
+_EOF_
+# make ext4 file system
+mkfs.ext4 /dev/sda1
+# mount the partition
+mount /dev/sda1 /mnt
+# install arch linux
+pacstrap /mnt base base-devel
 
