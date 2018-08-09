@@ -13,6 +13,6 @@ mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 # install arch linux
 pacstrap -i /mnt base base-devel
-genfstab -U -p /mnt >> /mnt/etc/fstaISOb
+genfstab -U -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt /bin/bash < ./arch_chroot
 
