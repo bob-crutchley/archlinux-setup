@@ -12,5 +12,5 @@ mount /dev/sda1 /mnt
 # install arch linux
 pacstrap /mnt base base-devel
 
-arch-chroot /mnt ./arch_chroot
+arch-chroot /mnt /bin/bash < ./arch_chroot
 
