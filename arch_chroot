@@ -17,7 +17,7 @@ pacman -S grub --noconfirm
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
-adduser bob
+useradd bob
 mkdir /home/bob
 printf "exec startkde\n" >> /home/bob/.xinitrc
 chown -R bob:bob /home/bob
