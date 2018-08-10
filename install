@@ -1,5 +1,4 @@
 #!/bin/bash
-printf "loadkeys uk\n" >> /etc/profile
 # locale.gen
 sed -i 's/#en_GB.UTF/en_GB.UTF/g' /etc/locale.gen
 locale-gen
@@ -7,17 +6,19 @@ locale-gen
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc --utc
 
+# host & networking  configuration
 printf "archlinux\n" > /etc/hostname
 printf "127.0.0.1\tlocalhost.localdomain\tlocalhost\n" >> /etc/hosts
 printf "::1\tlocalhost.localdomain\tlocalhost\n" >> /etc/hosts
 printf "127.0.1.1\tlocalhost.localdomain\tarchlinux\n" >> /etc/hosts
-
 systemctl enable dhcpcd
 
+# grub boot loader
 pacman -S grub --noconfirm
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
+# admin user
 useradd bob
 mkdir /home/bob
 printf "exec startkde\n" >> /home/bob/.xinitrc
@@ -26,3 +27,5 @@ printf "bob ALL=(ALL) ALL\n" >> /etc/sudoers
 
 pacman -S plasma-desktop xorg xorg-xinit konsole dolphin latte-dock --noconfirm
 
+# steam fonts
+# wget 
