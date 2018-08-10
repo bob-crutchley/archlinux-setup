@@ -1,4 +1,5 @@
 #!/bin/bash
+printf "loadkeys uk\n" >> /etc/profile
 # locale.gen
 sed -i 's/#en_GB.UTF/en_GB.UTF/g' /etc/locale.gen
 locale-gen
