@@ -21,7 +21,7 @@ useradd bob
 mkdir /home/bob
 printf "exec startkde\n" >> /home/bob/.xinitrc
 chown -R bob:bob /home/bob
+printf "bob ALL=(ALL) ALL\n" >> /etc/sudoers
 
-pacman -S plasma-desktop --noconfirm
-pacman -S xorg xorg-xinit --noconfirm
+pacman -S plasma-desktop xorg xorg-xinit konsole dolphin latte-dock --noconfirm
 
