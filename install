@@ -21,11 +21,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # admin user
 useradd bob
 mkdir /home/bob
-printf "exec startkde\n" >> /home/bob/.xinitrc
+printf "exec i3\n" >> /home/bob/.xinitrc
 chown -R bob:bob /home/bob
 printf "bob ALL=(ALL) ALL\n" >> /etc/sudoers
 
-pacman -S plasma-desktop xorg xorg-xinit konsole dolphin latte-dock --noconfirm
+pacman -S xorg xorg-xinit konsole --noconfirm
 
 # steam fonts
 # wget 
